@@ -1,10 +1,10 @@
+import Loader from "@/components/Loader"
 import { lazy, Suspense } from "react"
-import Loader from "../components/Loader"
 import { BrowserRouter, Route, Routes } from "react-router"
 
-const AppLayout = lazy(() => import("./../layout/AppLayout"))
-const LandingPage = lazy(() => import("./../screen/LandingPage"))
-const NotFoundPage = lazy(() => import("./../screen/NotFoundPage"))
+const AppLayout = lazy(() => import("@/layout/AppLayout"))
+const LandingPage = lazy(() => import("@/screen/LandingPage"))
+const NotFoundPage = lazy(() => import("@/screen/NotFoundPage"))
 
 const Pathnames = {
   lading: '/'
