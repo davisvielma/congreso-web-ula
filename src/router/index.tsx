@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router"
 
 const AppLayout = lazy(() => import("./../layout/AppLayout"))
 const LandingPage = lazy(() => import("./../screen/LandingPage"))
+const NotFoundPage = lazy(() => import("./../screen/NotFoundPage"))
 
 const Pathnames = {
   lading: '/'
@@ -11,7 +12,7 @@ const Pathnames = {
 
 const AppRouter = () => {
   return (
-     <Suspense
+    <Suspense
       fallback={
         <div className="h-screen w-full grid place-content-center">
           <Loader />
@@ -22,10 +23,8 @@ const AppRouter = () => {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path={Pathnames.lading} element={<LandingPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
-          
-
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
       </BrowserRouter>
     </Suspense>
