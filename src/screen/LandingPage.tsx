@@ -1,13 +1,13 @@
+import AgendaSection from "@/components/AgendaSection"
 import FloatingBackToTop from "@/components/FloatingBackToTop"
-import { useThemeStore } from "@/store/theme"
+import HeroSection from "@/components/HeroSection"
 
 const LandingPage = () => {
-  const { theme, setTheme } = useThemeStore()
 
   return (
-    <div className="my-20 z-10">
-      <p>Theme: {theme}</p>
-      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>Cambiar theme</button>
+    <div className="flex flex-col items-center gap-6 z-10">
+      <HeroSection /> 
+      <AgendaSection />
 
       <FloatingBackToTop />
     </div>
