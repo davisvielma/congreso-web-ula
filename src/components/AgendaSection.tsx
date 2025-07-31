@@ -81,7 +81,7 @@ const trackConfig = {
     gradient: "from-green-500 to-emerald-500",
   },
   ia: {
-    label: "Inteligencia Artificial",
+    label: "IA",
     color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
     icon: Brain,
     gradient: "from-purple-500 to-pink-500",
@@ -95,7 +95,7 @@ const AgendaSection = () => {
 
   return (
     <section id="agenda" className="py-24 px-4 bg-gray-50/50 dark:bg-gray-900/50 w-full">
-      <div className="container mx-auto">
+      <div className="container mx-auto lg:max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ const AgendaSection = () => {
         </motion.div>
 
         {/* Agenda Cards mejoradas */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
           {filteredAgenda.map((item, index) => {
             const trackInfo = trackConfig[item.track]
             const Icon = trackInfo.icon
@@ -162,9 +162,9 @@ const AgendaSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="group"
+                className="w-full max-w-[400px]"
               >
-                <Card className="h-full hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden bg-white dark:bg-gray-800">
+                <Card className="group h-full hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden bg-white dark:bg-gray-800">
                   <div className={`h-2 bg-gradient-to-r ${trackInfo.gradient}`} />
 
                   <CardHeader className="pb-4">
