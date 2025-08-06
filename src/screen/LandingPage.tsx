@@ -1,6 +1,7 @@
 import AgendaSection from "@/components/AgendaSection"
 import FloatingBackToTop from "@/components/FloatingBackToTop"
 import HeroSection from "@/components/HeroSection"
+import QuizSection from "@/components/QuizSection"
 import SpeakersSection from "@/components/SpeakersSection"
 
 const LandingPage = () => {
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <HeroSection /> 
       <AgendaSection />
       <SpeakersSection />
+      <QuizSection />
 
       <FloatingBackToTop />
     </div>

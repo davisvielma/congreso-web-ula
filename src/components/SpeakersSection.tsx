@@ -137,7 +137,7 @@ const SpeakersSection = () => {
                 className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer animate-fade-in-up bg-white dark:bg-gray-800"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <CardContent className="p-6 text-center">
+                <CardContent className="px-1.5 py-4 sm:p-6 text-center">
                   <div className="relative mb-6">
                     <img
                       src={speaker.image || "/photoProfileDefault.webp"}
