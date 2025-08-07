@@ -1,6 +1,8 @@
+import { Pathnames } from "@/router/pathnames";
 import { motion } from "framer-motion"
 import { Calendar, MapPin, Mail, Phone, ExternalLink } from "lucide-react"
 import { FaFacebookF as Facebook, FaXTwitter as Twitter, FaInstagram as Instagram, FaLinkedin as Linkedin, FaGithub as Github } from "react-icons/fa6";
+import { useLocation } from "react-router";
 
 const socialLinks = [
   { name: "Facebook", icon: Facebook, href: "https://facebook.com", color: "hover:text-blue-500" },
@@ -25,6 +27,8 @@ const contactInfo = [
 ]
 
 const Footer = () => {
+  const { pathname } = useLocation()
+
   const scrollToSection = (href: string) => {
     if (href.startsWith("#")) {
       const element = document.getElementById(href.substring(1))
@@ -56,7 +60,7 @@ const Footer = () => {
       <div className="relative">
         {/* Main Footer Content */}
         <div className="container mx-auto px-6 py-16">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12">
+          <div className={`grid gap-12 md:grid-cols-2 ${pathname === Pathnames.lading ? "lg:grid-cols-3" : ""} `}>
             {/* Logo y Descripción */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -92,7 +96,7 @@ const Footer = () => {
             </motion.div>
 
             {/* Enlaces Rápidos */}
-            <motion.div
+            {pathname === Pathnames.lading && <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -113,7 +117,7 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </motion.div>}
 
             {/* Contacto */}
             <motion.div

@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Calendar, Users, MapPin, HelpCircle, UserPlus } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
+import { useLocation } from "react-router"
+import { Pathnames } from "@/router/pathnames"
 
 const navigationItems = [
   { name: "Inicio", href: "#hero", icon: Calendar },
@@ -17,6 +19,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const { pathname } = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +81,7 @@ const Navbar = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            {pathname === Pathnames.lading && <div className="hidden lg:flex items-center gap-1">
               {navigationItems.map((item) => {
                 const Icon = item.icon
                 const isActive = activeSection === item.href.substring(1)
@@ -99,7 +102,7 @@ const Navbar = () => {
                   </motion.button>
                 )
               })}
-            </div>
+            </div>}
 
             {/* Theme Toggle & Mobile Menu */}
             <div className="flex items-center space-x-4">
@@ -111,6 +114,7 @@ const Navbar = () => {
                 size="icon"
                 className="lg:hidden"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                disabled={pathname !== Pathnames.lading}
               >
                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
