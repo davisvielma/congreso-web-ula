@@ -2,7 +2,6 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
 import Confetti from "react-confetti"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,20 +10,9 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from 'react-toastify'
 import { CheckCircle, Loader2 } from "lucide-react"
-
-const ticketPrices = {
-  estudiante: "Gratis",
-  profesional: "$25",
-  empresa: "$50",
-}
-
-const formSchema = z.object({
-  name: z.string().min(4, "El nombre debe tener al menos 4 caracteres"),
-  email: z.string().regex(/^[^@]+@[^@]+\.[^@]+$/, "Ingresa un email válido"),
-  ticketType: z.enum(["estudiante", "profesional", "empresa"], "Selecciona un tipo de ticket"),
-})
-
-type FormData = z.infer<typeof formSchema>
+import type { FormData } from "@/schemas/typeSchemas"
+import { formSchema } from "@/schemas/register.schema"
+import { ticketPrices } from "@/data/registration"
 
 const RegistrationSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
