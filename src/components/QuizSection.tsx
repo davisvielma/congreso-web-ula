@@ -115,7 +115,7 @@ const QuizSection = () => {
   const [showResult, setShowResult] = useState(false)
   const [recommendedTrack, setRecommendedTrack] = useState<"frontend" | "backend" | "ia" | null>(null)
 
-  const handleAnswer = (optionId: string, track: "frontend" | "backend" | "ia") => {
+  const handleAnswer = (track: "frontend" | "backend" | "ia") => {
     const newAnswers = [...answers, track]
     setAnswers(newAnswers)
 
@@ -148,7 +148,7 @@ const QuizSection = () => {
   }
 
   return (
-    <section id="quiz" className="py-20 px-4">
+    <section id="quiz" className="py-20 px-4 w-full">
       <div className="container mx-auto max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -189,18 +189,18 @@ const QuizSection = () => {
                   </div>
                   <CardTitle className="text-2xl">{quizQuestions[currentQuestion].question}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="px-3 sm:px-6">
                   <div className="space-y-4">
                     {quizQuestions[currentQuestion].options.map((option) => (
                       <motion.div key={option.id} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                         <Button
                           variant="outline"
-                          className="w-full p-6 h-auto justify-start text-left hover:bg-blue-50 dark:hover:bg-blue-900/20 bg-transparent"
-                          onClick={() => handleAnswer(option.id, option.track)}
+                          className="w-full py-6 px-3 sm:p-6 h-auto justify-start text-left hover:bg-blue-50 dark:hover:bg-blue-900/20 bg-transparent"
+                          onClick={() => handleAnswer(option.track)}
                         >
-                          <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-3 sm:gap-4">
                             {option.icon}
-                            <span className="text-lg">{option.text}</span>
+                            <span className="sm:text-lg">{option.text}</span>
                           </div>
                         </Button>
                       </motion.div>

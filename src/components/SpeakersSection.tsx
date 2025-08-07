@@ -107,7 +107,7 @@ const speakersData: Speaker[] = [
 
 const SpeakersSection = () => {
   return (
-    <section id="speakers" className="py-20 px-4 bg-gray-50/50 dark:bg-gray-900 w-full">
+    <section id="speakers" className="py-20 px-4 bg-gray-50/50 dark:bg-gray-900/50 w-full">
       <div className="container mx-auto lg:max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

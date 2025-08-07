@@ -12,7 +12,7 @@ const HeroSection = () => {
   })
 
   useEffect(() => {
-    const targetDate = new Date("2025-11-15T09:00:00").getTime()
+    const targetDate = new Date("2026-11-15T09:00:00").getTime()
 
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -82,7 +82,7 @@ const HeroSection = () => {
           >
             <div className="flex items-center gap-3 bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
               <Calendar className="w-5 h-5 text-blue-600" />
-              <span className="font-medium">15 de Noviembre, 2025</span>
+              <span className="font-medium">15 de Noviembre, 2026</span>
             </div>
             <div className="flex items-center gap-3 bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
               <MapPin className="w-5 h-5 text-blue-600" />
