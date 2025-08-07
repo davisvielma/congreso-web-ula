@@ -8,3 +8,18 @@ export interface AgendaItem {
   track: "frontend" | "backend" | "ia"
   description: string
 }
+
+export interface Speaker {
+  id: string
+  name: string
+  role: string
+  company: string
+  bio: string
+  image: string
+  specialties: string[]
+  social: {
+    twitter?: string
+    linkedin?: string
+    github?: string
+  }
+}
