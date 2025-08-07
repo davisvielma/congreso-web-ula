@@ -43,7 +43,7 @@ const LocationSection = () => {
                       <p className="text-gray-600 dark:text-gray-300">
                         9:00 AM - 6:00 PM
                         <br />
-                        15 de Noviembre, 2025
+                        15 de Noviembre, 2026
                       </p>
                     </div>
                   </div>

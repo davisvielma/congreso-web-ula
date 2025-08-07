@@ -1,92 +1,10 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Clock, User, Code, Database, Brain, Calendar } from "lucide-react"
-
-type Track = "all" | "frontend" | "backend" | "ia"
-
-interface AgendaItem {
-  id: string
-  title: string
-  speaker: string
-  time: string
-  track: "frontend" | "backend" | "ia"
-  description: string
-}
-
-const agendaData: AgendaItem[] = [
-  {
-    id: "1",
-    title: "React 19: Nuevas Características",
-    speaker: "María González",
-    time: "09:00 - 09:45",
-    track: "frontend",
-    description: "Explorando las últimas características de React 19 y cómo implementarlas en proyectos reales.",
-  },
-  {
-    id: "2",
-    title: "Node.js y Microservicios",
-    speaker: "Carlos Rodríguez",
-    time: "09:00 - 09:45",
-    track: "backend",
-    description: "Arquitectura de microservicios con Node.js y mejores prácticas de desarrollo.",
-  },
-  {
-    id: "3",
-    title: "IA en el Desarrollo Web",
-    speaker: "Ana Martínez",
-    time: "09:00 - 09:45",
-    track: "ia",
-    description: "Integración de inteligencia artificial en aplicaciones web modernas.",
-  },
-  {
-    id: "4",
-    title: "TypeScript Avanzado",
-    speaker: "Luis Pérez",
-    time: "10:00 - 10:45",
-    track: "frontend",
-    description: "Técnicas avanzadas de TypeScript para aplicaciones escalables.",
-  },
-  {
-    id: "5",
-    title: "GraphQL y APIs Modernas",
-    speaker: "Elena Vargas",
-    time: "10:00 - 10:45",
-    track: "backend",
-    description: "Construcción de APIs eficientes con GraphQL y Apollo Server.",
-  },
-  {
-    id: "6",
-    title: "Machine Learning con TensorFlow.js",
-    speaker: "Roberto Silva",
-    time: "10:00 - 10:45",
-    track: "ia",
-    description: "Implementación de modelos de ML directamente en el navegador.",
-  },
-]
-
-const trackConfig = {
-  frontend: {
-    label: "Frontend",
-    color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-    icon: Code,
-    gradient: "from-blue-500 to-cyan-500",
-  },
-  backend: {
-    label: "Backend",
-    color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-    icon: Database,
-    gradient: "from-green-500 to-emerald-500",
-  },
-  ia: {
-    label: "IA",
-    color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
-    icon: Brain,
-    gradient: "from-purple-500 to-pink-500",
-  },
-}
+import { Calendar } from "lucide-react"
+import { agendaData, trackConfig } from "@/data/agenda"
+import type { Track } from "@/types"
+import AgendaCard from "./card/AgendaCard"
 
 const AgendaSection = () => {
   const [activeTrack, setActiveTrack] = useState<Track>("all")
@@ -113,7 +31,6 @@ const AgendaSection = () => {
           </p>
         </motion.div>
 
-        {/* Filtros mejorados */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +65,6 @@ const AgendaSection = () => {
           })}
         </motion.div>
 
-        {/* Agenda Cards mejoradas */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
           {filteredAgenda.map((item, index) => {
             const trackInfo = trackConfig[item.track]
@@ -164,33 +80,16 @@ const AgendaSection = () => {
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="w-full max-w-[400px]"
               >
-                <Card className="group h-full hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden bg-white dark:bg-gray-800">
-                  <div className={`h-2 bg-gradient-to-r ${trackInfo.gradient}`} />
-
-                  <CardHeader className="pb-4">
-                    <div className="flex justify-between items-start mb-3">
-                      <Badge className={`${trackInfo.color} flex items-center gap-1`}>
-                        <Icon className="w-3 h-3" />
-                        {trackInfo.label}
-                      </Badge>
-                      <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 rounded-full px-3 py-1">
-                        <Clock className="w-4 h-4 mr-1" />
-                        {item.time}
-                      </div>
-                    </div>
-                    <CardTitle className="text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {item.title}
-                    </CardTitle>
-                    <CardDescription className="flex items-center text-base">
-                      <User className="w-4 h-4 mr-2" />
-                      {item.speaker}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
-                  </CardContent>
-                </Card>
+                <AgendaCard
+                  Icon={Icon}
+                  color={trackInfo.color}
+                  description={item.description}
+                  gradient={trackInfo.gradient}
+                  label={trackInfo.label}
+                  speaker={item.speaker}
+                  time={item.time}
+                  title={item.title}
+                />
               </motion.div>
             )
           })}

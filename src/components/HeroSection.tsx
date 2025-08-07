@@ -31,14 +31,8 @@ const HeroSection = () => {
     return () => clearInterval(timer)
   }, [])
 
-  const scrollToRegistration = () => {
-    document.getElementById("registration")?.scrollIntoView({
-      behavior: "smooth",
-    })
-  }
-
-  const scrollToAgenda = () => {
-    document.getElementById("agenda")?.scrollIntoView({
+  const scrollTo = (section: string) => {
+    document.getElementById(section)?.scrollIntoView({
       behavior: "smooth",
     })
   }
@@ -127,7 +121,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 font-semibold"
-                onClick={scrollToRegistration}
+                onClick={() => scrollTo("registration")}
               >
                 Regístrate Ahora
               </Button>
@@ -138,7 +132,7 @@ const HeroSection = () => {
                 variant="outline"
                 size="lg"
                 className="bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm border-white/30 hover:bg-white/20 dark:hover:bg-gray-700/50 px-8 py-4 text-lg rounded-full font-semibold"
-                onClick={scrollToAgenda}
+                onClick={() => scrollTo("agenda")}
               >
                 Ver Agenda
               </Button>
