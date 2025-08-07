@@ -1,10 +1,12 @@
 # 🚀 Congreso de Desarrollo Web - ULA  
-*Landing Page para Evento Ficticio*  
+*Landing Page Interactiva para Evento Ficticio de Tecnológico*  
 
-![React](https://img.shields.io/badge/React-19%2B-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5%2B-3178C6?logo=typescript)
+[![Vercel Deployment](https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://congreso-web-ula.vercel.app/)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
 ![Framer Motion](https://img.shields.io/badge/Animaciones-Framer%20Motion-C60084?logo=framer)
-![Vite](https://img.shields.io/badge/Vite-7%2B-646CFF?logo=vite)
 
 ## 📌 Descripción  
 Landing page moderna para el **Congreso de Desarrollo Web - ULA**, un evento ficticio de tecnología organizado por la Universidad de Los Andes. Diseñada para promocionar charlas, speakers y permitir registros simulados, con un enfoque en:
@@ -15,54 +17,33 @@ Landing page moderna para el **Congreso de Desarrollo Web - ULA**, un evento fic
   - Formulario de registro simulado.
   - Diseño 100% responsive
 
-## ✨ Características Destacadas  
+##  🛠 Tecnologías Clave
+  - Frontend: React 18+, Vite.
+  - Tipado: TypeScript.
+  - Animaciones: Framer Motion.
+  - Estilos: CSS Modules o TailwindCSS.
 
-### 🎨 UI/UX Avanzada  
-- Efectos de hover y scroll con Framer Motion  
-- Modo oscuro/claro (Context API)  
-- Microinteracciones con CSS Variables  
+## ✨ Highlights para Reclutadores
 
-### ⚡ Tecnologías  
-```mermaid
-graph TD
-    A[React 18] --> B[TypeScript]
-    A --> C[Vite]
-    A --> D[Framer Motion]
-    B --> E[ESLint + Prettier]
-```
+  1. Arquitectura limpia
+      - Carpeta components bien organizada
+      - Separación clara entre UI y lógica
+  2. Detalles que marcan la diferencia
+      - Efectos de hover en cards
+      - Transiciones entre secciones
+      - Loaders simulados para experiencia realista
+  3. Código profesional
+      - Tipado exhaustivo con TypeScript
+      - Estilos con Tailwind
 
+## 📸 Capturas
 
+![Modo light](./public/capture-light.png)
 
-# 🌟 Congreso de Desarrollo Web - ULA  
-*Landing Page Interactiva para Evento Tecnológico*  
+![Modo dart](./public/capture-dart.png)
 
-[![Vercel Deployment](https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://congreso-web-ula.vercel.app/)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)
-![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
-![Framer Motion](https://img.shields.io/badge/Animaciones-Framer%20Motion-C60084?logo=framer)
+## 📝 Nota
 
-## 🎯 Impacto Visual  
-Diseño moderno y profesional para un evento tecnológico ficticio, con:  
-- **Hero section animada** con efecto parallax  
-- **Cards interactivas** para speakers  
-- **Paleta de colores profesional** (azules y morados tecnológicos)  
-- **Totalmente responsive** (mobile, tablet, desktop)  
+Este proyecto es ficticio, creado con fines educativos.
 
-![Hero Section](https://i.imgur.com/placeholder-hero.jpg)  
-*Captura: Sección principal con CTA destacado*
-
-## 🛠️ Tecnologías Clave  
-### Frontend Avanzado  
-- **React 18 + Vite**: Rendimiento optimizado  
-- **TypeScript**: Tipado estricto en todos los componentes  
-- **Tailwind CSS**: Diseño consistente con utility-first  
-- **Framer Motion**: Animaciones fluidas en scroll y hover  
-
-### Buenas Prácticas  
-```mermaid
-graph LR
-    A[Componentes Modulares] --> B[Props tipadas]
-    C[Custom Hooks] --> D[Lógica reutilizable]
-    E[Data Fetching Simulado] --> F[JSON Local]
+**¡Inspirado en eventos reales como JSConf o React Summit!**
