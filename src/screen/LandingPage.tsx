@@ -5,10 +5,8 @@ import LocationSection from "@/components/LocationSection"
 import QuizSection from "@/components/QuizSection"
 import RegistrationSection from "@/components/RegistrationSection"
 import SpeakersSection from "@/components/SpeakersSection"
-import { ToastContainer } from 'react-toastify'
 
 const LandingPage = () => {
-
   return (
     <div className="flex flex-col items-center z-10">
       <HeroSection /> 
@@ -19,7 +17,7 @@ const LandingPage = () => {
       <LocationSection />
 
       <FloatingBackToTop />
-      <ToastContainer />
+      
     </div>
   )
 }
