@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Calendar, Users, MapPin, Award, HelpCircle, UserPlus } from "lucide-react"
+import { Menu, X, Calendar, Users, MapPin, HelpCircle, UserPlus } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
 
 const navigationItems = [
@@ -11,7 +11,6 @@ const navigationItems = [
   { name: "Quiz", href: "#quiz", icon: HelpCircle },
   { name: "Registro", href: "#registration", icon: UserPlus },
   { name: "Ubicación", href: "#location", icon: MapPin },
-  { name: "Sponsors", href: "#sponsors", icon: Award },
 ]
 
 const Navbar = () => {
