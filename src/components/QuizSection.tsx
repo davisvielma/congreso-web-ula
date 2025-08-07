@@ -3,111 +3,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Code, Database, Brain } from "lucide-react"
-
-interface QuizQuestion {
-  id: string
-  question: string
-  options: {
-    id: string
-    text: string
-    track: "frontend" | "backend" | "ia"
-    icon: React.ReactNode
-  }[]
-}
-
-const quizQuestions: QuizQuestion[] = [
-  {
-    id: "1",
-    question: "¿Qué aspecto del desarrollo web te interesa más?",
-    options: [
-      {
-        id: "ui",
-        text: "Interfaces de usuario interactivas",
-        track: "frontend",
-        icon: <Code className="w-5 h-5" />,
-      },
-      {
-        id: "api",
-        text: "APIs y arquitecturas de servidor",
-        track: "backend",
-        icon: <Database className="w-5 h-5" />,
-      },
-      {
-        id: "ai",
-        text: "Inteligencia artificial y ML",
-        track: "ia",
-        icon: <Brain className="w-5 h-5" />,
-      },
-    ],
-  },
-  {
-    id: "2",
-    question: "¿Con qué tecnología te gustaría trabajar más?",
-    options: [
-      {
-        id: "react",
-        text: "React y ecosistema frontend",
-        track: "frontend",
-        icon: <Code className="w-5 h-5" />,
-      },
-      {
-        id: "node",
-        text: "Node.js y microservicios",
-        track: "backend",
-        icon: <Database className="w-5 h-5" />,
-      },
-      {
-        id: "tensorflow",
-        text: "TensorFlow y modelos de IA",
-        track: "ia",
-        icon: <Brain className="w-5 h-5" />,
-      },
-    ],
-  },
-  {
-    id: "3",
-    question: "¿Qué tipo de problemas prefieres resolver?",
-    options: [
-      {
-        id: "ux",
-        text: "Experiencia de usuario y diseño",
-        track: "frontend",
-        icon: <Code className="w-5 h-5" />,
-      },
-      {
-        id: "performance",
-        text: "Rendimiento y escalabilidad",
-        track: "backend",
-        icon: <Database className="w-5 h-5" />,
-      },
-      {
-        id: "data",
-        text: "Análisis de datos y predicciones",
-        track: "ia",
-        icon: <Brain className="w-5 h-5" />,
-      },
-    ],
-  },
-]
-
-const trackInfo = {
-  frontend: {
-    name: "Frontend Development",
-    color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-    description: "Perfecto para crear interfaces increíbles y experiencias de usuario memorables",
-  },
-  backend: {
-    name: "Backend Development",
-    color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-    description: "Ideal para construir arquitecturas robustas y sistemas escalables",
-  },
-  ia: {
-    name: "Inteligencia Artificial",
-    color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
-    description: "Excelente para innovar con IA y crear soluciones inteligentes",
-  },
-}
+import { CheckCircle } from "lucide-react"
+import { quizQuestions, trackInfo } from "@/data/quiz"
+import { scrollTo } from "@/utils"
 
 const QuizSection = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -199,7 +97,7 @@ const QuizSection = () => {
                           onClick={() => handleAnswer(option.track)}
                         >
                           <div className="flex items-center gap-3 sm:gap-4">
-                            {option.icon}
+                            <option.icon className="w-5 h-5" />
                             <span className="sm:text-lg">{option.text}</span>
                           </div>
                         </Button>
@@ -242,7 +140,7 @@ const QuizSection = () => {
                       Repetir Quiz
                     </Button>
                     <Button
-                      onClick={() => document.getElementById("registration")?.scrollIntoView({ behavior: "smooth" })}
+                      onClick={() => scrollTo("registration")}
                       className="bg-blue-600 hover:bg-blue-700"
                     >
                       Registrarme Ahora

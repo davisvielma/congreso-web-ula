@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Calendar, MapPin, Users } from "lucide-react"
+import { scrollTo } from "@/utils"
 
 const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -30,12 +31,6 @@ const HeroSection = () => {
 
     return () => clearInterval(timer)
   }, [])
-
-  const scrollTo = (section: string) => {
-    document.getElementById(section)?.scrollIntoView({
-      behavior: "smooth",
-    })
-  }
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center overflow-hidden pt-16">

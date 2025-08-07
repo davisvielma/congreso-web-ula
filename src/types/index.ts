@@ -1,3 +1,6 @@
+import type { LucideProps } from "lucide-react"
+import type { ComponentType } from "react"
+
 export type Track = "all" | "frontend" | "backend" | "ia"
 
 export interface AgendaItem {
@@ -22,4 +25,15 @@ export interface Speaker {
     linkedin?: string
     github?: string
   }
+}
+
+export interface QuizQuestion {
+  id: string
+  question: string
+  options: {
+    id: string
+    text: string
+    track: "frontend" | "backend" | "ia"
+    icon: ComponentType<LucideProps>
+  }[]
 }
