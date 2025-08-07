@@ -1,30 +1,8 @@
+import { contactInfo, quickLinks, socialLinks } from "@/data/footer";
 import { Pathnames } from "@/router/pathnames";
 import { motion } from "framer-motion"
-import { Calendar, MapPin, Mail, Phone, ExternalLink } from "lucide-react"
-import { FaFacebookF as Facebook, FaXTwitter as Twitter, FaInstagram as Instagram, FaLinkedin as Linkedin, FaGithub as Github } from "react-icons/fa6";
+import { Calendar, MapPin, ExternalLink } from "lucide-react"
 import { useLocation } from "react-router";
-
-const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com", color: "hover:text-blue-500" },
-  { name: "X", icon: Twitter, href: "https://x.com", color: "hover:text-gray-900 dark:hover:text-white" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com", color: "hover:text-pink-400" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com", color: "hover:text-blue-500" },
-  { name: "GitHub", icon: Github, href: "https://github.com", color: "hover:text-gray-900 dark:hover:text-white" }
-]
-
-const quickLinks = [
-  { name: "Agenda", href: "#agenda" },
-  { name: "Speakers", href: "#speakers" },
-  { name: "Registro", href: "#registration" },
-  { name: "Ubicación", href: "#location" },
-  { name: "Sponsors", href: "#sponsors" },
-]
-
-const contactInfo = [
-  { icon: Mail, text: "congreso@ula.ve", href: "mailto:congreso@ula.ve" },
-  { icon: Phone, text: "+58 274 222-1111", href: "tel:+582742221111" },
-  { icon: MapPin, text: "Mérida, Venezuela", href: "#location" },
-]
 
 const Footer = () => {
   const { pathname } = useLocation()
@@ -167,7 +145,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-gray-800 dark:border-gray-700">
           <div className="container mx-auto px-4 py-6">
             <motion.p
@@ -177,7 +154,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="flex items-center justify-center gap-2 text-sm text-gray-400 text-center"
             >
-              © 2025 Universidad de Los Andes. Todos los derechos reservados.
+              © {new Date().getFullYear()} Universidad de Los Andes. Todos los derechos reservados.
             </motion.p>
           </div>
         </div>
