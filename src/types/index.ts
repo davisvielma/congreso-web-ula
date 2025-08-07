@@ -37,3 +37,19 @@ export interface QuizQuestion {
     icon: ComponentType<LucideProps>
   }[]
 }
+
+export interface InfoCard {
+  title: string
+  desciption: string
+  color: {
+    background: string
+    icon: string
+  }
+  Icon: ComponentType<LucideProps>
+}
+
+export interface InfoList {
+  title: string
+  desciption: string[]
+  Icon: ComponentType<LucideProps>
+}

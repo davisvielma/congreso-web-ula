@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { MapPin, Clock, ParkingMeterIcon as Parking, Wifi } from "lucide-react"
+import { MapPin } from "lucide-react"
+import { info, infoList } from "@/data/location"
 
 const LocationSection = () => {
   return (
@@ -36,41 +37,19 @@ const LocationSection = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-blue-600 mt-1" />
-                    <div>
-                      <h4 className="font-semibold">Horario del Evento</h4>
-                      <p className="text-gray-600 dark:text-gray-300">
-                        9:00 AM - 6:00 PM
-                        <br />
-                        15 de Noviembre, 2026
-                      </p>
+                  {infoList.map(({ Icon, desciption, title }) => (
+                    <div key={title} className="flex items-start gap-3">
+                      <Icon className="w-5 h-5 text-blue-600 mt-1" />
+                      <div>
+                        <h4 className="font-semibold">{title}</h4>
+                        <p className="text-gray-600 dark:text-gray-300">
+                          {desciption[0]}
+                          <br />
+                          {desciption[1]}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Parking className="w-5 h-5 text-blue-600 mt-1" />
-                    <div>
-                      <h4 className="font-semibold">Estacionamiento</h4>
-                      <p className="text-gray-600 dark:text-gray-300">
-                        Disponible en el campus universitario
-                        <br />
-                        Entrada gratuita para asistentes
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Wifi className="w-5 h-5 text-blue-600 mt-1" />
-                    <div>
-                      <h4 className="font-semibold">Conectividad</h4>
-                      <p className="text-gray-600 dark:text-gray-300">
-                        WiFi gratuito de alta velocidad
-                        <br />
-                        Estaciones de carga disponibles
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -85,7 +64,7 @@ const LocationSection = () => {
           >
             <div className="bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
               <div className="aspect-video relative">
-                {/* Simulación de mapa interactivo */}
+
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-green-100 dark:from-blue-900 dark:to-green-900">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
@@ -100,7 +79,6 @@ const LocationSection = () => {
                     </div>
                   </div>
 
-                  {/* Elementos decorativos del mapa */}
                   <div className="absolute top-4 left-4 w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
                   <div className="absolute top-8 right-8 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                   <div className="absolute bottom-6 left-8 w-2 h-2 bg-yellow-500 rounded-full animate-pulse" />
@@ -111,7 +89,6 @@ const LocationSection = () => {
           </motion.div>
         </div>
 
-        {/* Información adicional */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,41 +96,17 @@ const LocationSection = () => {
           viewport={{ once: true }}
           className="mt-12 grid md:grid-cols-3 gap-6"
         >
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 className="font-semibold mb-2">Fácil Acceso</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Ubicado en el campus principal de la ULA, con múltiples rutas de transporte público
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Parking className="w-6 h-6 text-green-600" />
-              </div>
-              <h3 className="font-semibold mb-2">Estacionamiento</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Amplio estacionamiento gratuito disponible para todos los asistentes
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wifi className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="font-semibold mb-2">Conectividad</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                WiFi de alta velocidad y estaciones de carga en todo el auditorio
-              </p>
-            </CardContent>
-          </Card>
+          {info.map(({ Icon, color, desciption, title }) => (
+            <Card key={title} className="text-center">
+              <CardContent className="pt-6">
+                <div className={`w-12 h-12 ${color.background} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <Icon className={`w-6 h-6 ${color.icon}`} />
+                </div>
+                <h3 className="font-semibold mb-2">{title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{desciption}</p>
+              </CardContent>
+            </Card>
+          ))}
         </motion.div>
       </div>
     </section>
