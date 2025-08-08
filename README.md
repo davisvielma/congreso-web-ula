@@ -23,7 +23,7 @@ Landing page moderna para el **Congreso de Desarrollo Web - ULA**, un evento fic
   - Animaciones: Framer Motion.
   - Estilos: CSS Modules o TailwindCSS.
 
-## ✨ Highlights para Reclutadores
+## ✨ Highlights
 
   1. Arquitectura limpia
       - Carpeta components bien organizada
