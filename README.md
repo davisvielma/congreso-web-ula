@@ -18,10 +18,10 @@ Landing page moderna para el **Congreso de Desarrollo Web - ULA**, un evento fic
   - Diseño 100% responsive
 
 ##  🛠 Tecnologías Clave
-  - Frontend: React 18+, Vite.
+  - Frontend: React 19, Vite.
   - Tipado: TypeScript.
   - Animaciones: Framer Motion.
-  - Estilos: CSS Modules o TailwindCSS.
+  - Estilos: TailwindCSS.
 
 ## ✨ Highlights
 
