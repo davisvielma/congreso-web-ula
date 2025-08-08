@@ -1,15 +1,15 @@
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "lucide-react"
-import { agendaData, trackConfig } from "@/data/agenda"
-import type { Track } from "@/types"
-import AgendaCard from "./card/AgendaCard"
+import { motion } from 'framer-motion'
+import { Calendar } from 'lucide-react'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { agendaData, trackConfig } from '@/data/agenda'
+import type { Track } from '@/types'
+import AgendaCard from './card/AgendaCard'
 
 const AgendaSection = () => {
-  const [activeTrack, setActiveTrack] = useState<Track>("all")
+  const [activeTrack, setActiveTrack] = useState<Track>('all')
 
-  const filteredAgenda = activeTrack === "all" ? agendaData : agendaData.filter((item) => item.track === activeTrack)
+  const filteredAgenda = activeTrack === 'all' ? agendaData : agendaData.filter((item) => item.track === activeTrack)
 
   return (
     <section id="agenda" className="py-24 px-4 bg-gray-50/50 dark:bg-gray-900/50 w-full">
@@ -40,8 +40,8 @@ const AgendaSection = () => {
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
-              variant={activeTrack === "all" ? "default" : "outline"}
-              onClick={() => setActiveTrack("all")}
+              variant={activeTrack === 'all' ? 'default' : 'outline'}
+              onClick={() => setActiveTrack('all')}
               className="rounded-full px-6 py-3 font-semibold"
             >
               Todos los Tracks
@@ -53,7 +53,7 @@ const AgendaSection = () => {
             return (
               <motion.div key={key} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
-                  variant={activeTrack === key ? "default" : "outline"}
+                  variant={activeTrack === key ? 'default' : 'outline'}
                   onClick={() => setActiveTrack(key as Track)}
                   className="rounded-full px-6 py-3 font-semibold flex items-center gap-2"
                 >

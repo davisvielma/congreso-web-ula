@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowUp } from "lucide-react"
+import { AnimatePresence, motion } from 'framer-motion'
+import { ArrowUp } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Button } from '@/components/ui/button'
 
 const FloatingBackToTop = () => {
   const [isVisible, setIsVisible] = useState(true)
@@ -15,14 +15,14 @@ const FloatingBackToTop = () => {
       }
     }
 
-    window.addEventListener("scroll", toggleVisibility)
-    return () => window.removeEventListener("scroll", toggleVisibility)
+    window.addEventListener('scroll', toggleVisibility)
+    return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     })
   }
 

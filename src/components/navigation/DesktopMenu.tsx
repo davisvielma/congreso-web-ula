@@ -1,13 +1,12 @@
-import { navigationItems } from "./links"
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
+import { navigationItems } from './links'
 
 interface Props {
   activeSection: string
   scrollToSection: (href: string) => void
 }
 
-
-const DesktopMenu = ({activeSection, scrollToSection}: Props) => {
+const DesktopMenu = ({ activeSection, scrollToSection }: Props) => {
   return (
     <div className="hidden lg:flex items-center gap-1">
       {navigationItems.map((item) => {
@@ -20,10 +19,11 @@ const DesktopMenu = ({activeSection, scrollToSection}: Props) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection(item.href)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${isActive
-              ? "bg-blue-600 text-white shadow-lg"
-              : "text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400"
-              }`}
+            className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              isActive
+                ? 'bg-blue-600 text-white shadow-lg'
+                : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400'
+            }`}
           >
             <Icon className="w-4 h-4" />
             <span>{item.name}</span>

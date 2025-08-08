@@ -1,7 +1,7 @@
-import { useCallback } from "react"
-import Particles from "react-tsparticles"
-import { loadSlim } from "tsparticles-slim"
-import type { Engine } from "tsparticles-engine"
+import { useCallback } from 'react'
+import Particles from 'react-tsparticles'
+import type { Engine } from 'tsparticles-engine'
+import { loadSlim } from 'tsparticles-slim'
 
 const ParticlesBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -16,7 +16,7 @@ const ParticlesBackground = () => {
       options={{
         background: {
           color: {
-            value: "transparent",
+            value: 'transparent',
           },
         },
         fpsLimit: 120,
@@ -24,11 +24,11 @@ const ParticlesBackground = () => {
           events: {
             onClick: {
               enable: true,
-              mode: "push",
+              mode: 'push',
             },
             onHover: {
               enable: true,
-              mode: "repulse",
+              mode: 'repulse',
             },
             resize: true,
           },
@@ -44,20 +44,20 @@ const ParticlesBackground = () => {
         },
         particles: {
           color: {
-            value: "#3b82f6",
+            value: '#3b82f6',
           },
           links: {
-            color: "#3b82f6",
+            color: '#3b82f6',
             distance: 150,
             enable: true,
             opacity: 0.3,
             width: 1,
           },
           move: {
-            direction: "none",
+            direction: 'none',
             enable: true,
             outModes: {
-              default: "bounce",
+              default: 'bounce',
             },
             random: false,
             speed: 1,
@@ -74,7 +74,7 @@ const ParticlesBackground = () => {
             value: 0.5,
           },
           shape: {
-            type: "circle",
+            type: 'circle',
           },
           size: {
             value: { min: 1, max: 5 },

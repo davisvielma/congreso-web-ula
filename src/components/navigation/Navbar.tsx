@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import ThemeToggle from "../ThemeToggle"
-import { useLocation } from "react-router"
-import { Pathnames } from "@/router/pathnames"
-import { navigationItems } from "./links"
-import DesktopMenu from "./DesktopMenu"
-import MobileMenu from "./MobileMenu"
+import { motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
+import { Button } from '@/components/ui/button'
+import { Pathnames } from '@/router/pathnames'
+import ThemeToggle from '../ThemeToggle'
+import DesktopMenu from './DesktopMenu'
+import { navigationItems } from './links'
+import MobileMenu from './MobileMenu'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("hero")
+  const [activeSection, setActiveSection] = useState('hero')
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -34,8 +34,8 @@ const Navbar = () => {
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollToSection = (href: string) => {
@@ -44,7 +44,7 @@ const Navbar = () => {
       const offsetTop = element.offsetTop - 80
       window.scrollTo({
         top: offsetTop,
-        behavior: "smooth",
+        behavior: 'smooth',
       })
     }
     setIsMobileMenuOpen(false)
@@ -56,10 +56,11 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700"
-          : "bg-transparent"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700'
+            : 'bg-transparent'
+        }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">

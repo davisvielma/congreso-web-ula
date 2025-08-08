@@ -1,3 +1,3 @@
 export const Pathnames = {
-  lading: '/'
+  lading: '/',
 }

@@ -1,6 +1,6 @@
-import { motion } from "framer-motion"
-import { speakersData } from "@/data/speakers"
-import SpeakerCard from "./card/SpeakerCard"
+import { motion } from 'framer-motion'
+import { speakersData } from '@/data/speakers'
+import SpeakerCard from './card/SpeakerCard'
 
 const SpeakersSection = () => {
   return (

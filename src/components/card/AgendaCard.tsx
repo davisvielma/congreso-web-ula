@@ -1,7 +1,7 @@
-import { User, Clock, type LucideProps } from "lucide-react"
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import type { ComponentType } from "react"
+import { Clock, type LucideProps, User } from 'lucide-react'
+import type { ComponentType } from 'react'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface Props {
   gradient: string

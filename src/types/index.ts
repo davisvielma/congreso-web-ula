@@ -1,14 +1,14 @@
-import type { LucideProps } from "lucide-react"
-import type { ComponentType } from "react"
+import type { LucideProps } from 'lucide-react'
+import type { ComponentType } from 'react'
 
-export type Track = "all" | "frontend" | "backend" | "ia"
+export type Track = 'all' | 'frontend' | 'backend' | 'ia'
 
 export interface AgendaItem {
   id: string
   title: string
   speaker: string
   time: string
-  track: "frontend" | "backend" | "ia"
+  track: 'frontend' | 'backend' | 'ia'
   description: string
 }
 
@@ -33,7 +33,7 @@ export interface QuizQuestion {
   options: {
     id: string
     text: string
-    track: "frontend" | "backend" | "ia"
+    track: 'frontend' | 'backend' | 'ia'
     icon: ComponentType<LucideProps>
   }[]
 }

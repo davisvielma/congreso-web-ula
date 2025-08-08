@@ -1,19 +1,19 @@
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle } from "lucide-react"
-import { quizQuestions, trackInfo } from "@/data/quiz"
-import { scrollTo } from "@/utils"
+import { AnimatePresence, motion } from 'framer-motion'
+import { CheckCircle } from 'lucide-react'
+import { useState } from 'react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { quizQuestions, trackInfo } from '@/data/quiz'
+import { scrollTo } from '@/utils'
 
 const QuizSection = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<string[]>([])
   const [showResult, setShowResult] = useState(false)
-  const [recommendedTrack, setRecommendedTrack] = useState<"frontend" | "backend" | "ia" | null>(null)
+  const [recommendedTrack, setRecommendedTrack] = useState<'frontend' | 'backend' | 'ia' | null>(null)
 
-  const handleAnswer = (track: "frontend" | "backend" | "ia") => {
+  const handleAnswer = (track: 'frontend' | 'backend' | 'ia') => {
     const newAnswers = [...answers, track]
     setAnswers(newAnswers)
 
@@ -29,9 +29,10 @@ const QuizSection = () => {
         {} as Record<string, number>,
       )
 
-      const recommended = Object.entries(trackCounts).reduce((a, b) =>
-        trackCounts[a[0]] > trackCounts[b[0]] ? a : b,
-      )[0] as "frontend" | "backend" | "ia"
+      const recommended = Object.entries(trackCounts).reduce((a, b) => (trackCounts[a[0]] > trackCounts[b[0]] ? a : b))[0] as
+        | 'frontend'
+        | 'backend'
+        | 'ia'
 
       setRecommendedTrack(recommended)
       setShowResult(true)
@@ -55,16 +56,47 @@ const QuizSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            ¿Cuál es tu Track Ideal?
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">¿Cuál es tu Track Ideal?</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">
             Responde estas preguntas y descubre qué track del congreso es perfecto para ti
           </p>
         </motion.div>
 
         <AnimatePresence mode="wait">
-          {!showResult ? (
+          {showResult ? (
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="flex justify-center mb-4">
+                    <CheckCircle className="w-16 h-16 text-green-500" />
+                  </div>
+                  <CardTitle className="text-3xl mb-2">¡Tu Track Recomendado!</CardTitle>
+                  <CardDescription className="text-lg">
+                    Basado en tus respuestas, este es el track perfecto para ti:
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {recommendedTrack && (
+                    <div className="mb-8">
+                      <Badge className={`text-lg px-6 py-2 mb-4 ${trackInfo[recommendedTrack].color}`}>
+                        {trackInfo[recommendedTrack].name}
+                      </Badge>
+                      <p className="text-gray-600 dark:text-gray-300 text-lg">{trackInfo[recommendedTrack].description}</p>
+                    </div>
+                  )}
+
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button onClick={resetQuiz} variant="outline">
+                      Repetir Quiz
+                    </Button>
+                    <Button onClick={() => scrollTo('registration')} className="bg-blue-600 hover:bg-blue-700">
+                      Registrarme Ahora
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ) : (
             <motion.div
               key={currentQuestion}
               initial={{ opacity: 0, x: 50 }}
@@ -81,7 +113,9 @@ const QuizSection = () => {
                     <div className="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                       <div
                         className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${((currentQuestion + 1) / quizQuestions.length) * 100}%` }}
+                        style={{
+                          width: `${((currentQuestion + 1) / quizQuestions.length) * 100}%`,
+                        }}
                       />
                     </div>
                   </div>
@@ -103,48 +137,6 @@ const QuizSection = () => {
                         </Button>
                       </motion.div>
                     ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <CheckCircle className="w-16 h-16 text-green-500" />
-                  </div>
-                  <CardTitle className="text-3xl mb-2">¡Tu Track Recomendado!</CardTitle>
-                  <CardDescription className="text-lg">
-                    Basado en tus respuestas, este es el track perfecto para ti:
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  {recommendedTrack && (
-                    <div className="mb-8">
-                      <Badge className={`text-lg px-6 py-2 mb-4 ${trackInfo[recommendedTrack].color}`}>
-                        {trackInfo[recommendedTrack].name}
-                      </Badge>
-                      <p className="text-gray-600 dark:text-gray-300 text-lg">
-                        {trackInfo[recommendedTrack].description}
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button onClick={resetQuiz} variant="outline">
-                      Repetir Quiz
-                    </Button>
-                    <Button
-                      onClick={() => scrollTo("registration")}
-                      className="bg-blue-600 hover:bg-blue-700"
-                    >
-                      Registrarme Ahora
-                    </Button>
                   </div>
                 </CardContent>
               </Card>

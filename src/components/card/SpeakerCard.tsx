@@ -1,9 +1,8 @@
-import type { Speaker } from "@/types"
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { FaGithub as Github, FaLinkedin as Linkedin, FaXTwitter as Twitter } from "react-icons/fa6"
-
+import { motion } from 'framer-motion'
+import { FaGithub as Github, FaLinkedin as Linkedin, FaXTwitter as Twitter } from 'react-icons/fa6'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
+import type { Speaker } from '@/types'
 
 interface Props {
   speaker: Speaker
@@ -20,7 +19,7 @@ const SpeakerCard = ({ speaker, index }: Props) => {
       <CardContent className="px-1.5 py-4 sm:p-6 text-center">
         <div className="relative mb-6">
           <img
-            src={speaker.image || "/photoProfileDefault.webp"}
+            src={speaker.image || '/photoProfileDefault.webp'}
             alt={speaker.name}
             width={128}
             height={128}

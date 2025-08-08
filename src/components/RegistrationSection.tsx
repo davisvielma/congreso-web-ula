@@ -1,18 +1,18 @@
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import Confetti from "react-confetti"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { zodResolver } from '@hookform/resolvers/zod'
+import { motion } from 'framer-motion'
+import { CheckCircle, Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import Confetti from 'react-confetti'
+import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import { CheckCircle, Loader2 } from "lucide-react"
-import type { FormData } from "@/schemas/typeSchemas"
-import { formSchema } from "@/schemas/register.schema"
-import { ticketPrices } from "@/data/registration"
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { ticketPrices } from '@/data/registration'
+import { formSchema } from '@/schemas/register.schema'
+import type { FormData } from '@/schemas/typeSchemas'
 
 const RegistrationSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -22,8 +22,8 @@ const RegistrationSection = () => {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
+      name: '',
+      email: '',
       ticketType: undefined,
     },
   })
@@ -34,14 +34,14 @@ const RegistrationSection = () => {
     // Simular envío de formulario
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    console.log("Datos del formulario:", data)
+    console.log('Datos del formulario:', data)
 
     setIsSubmitting(false)
     setIsRegistered(true)
     setShowConfetti(true)
 
-    toast.success("Te hemos enviado un email de confirmación.", {
-      position: "bottom-right"
+    toast.success('Te hemos enviado un email de confirmación.', {
+      position: 'bottom-right',
     })
 
     // Ocultar confetti después de 5 segundos
@@ -63,11 +63,7 @@ const RegistrationSection = () => {
           />
         )}
         <div className="container mx-auto max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}>
             <Card className="text-center">
               <CardHeader>
                 <div className="flex justify-center mb-4">
@@ -207,7 +203,7 @@ const RegistrationSection = () => {
                           Procesando...
                         </>
                       ) : (
-                        "Confirmar Registro"
+                        'Confirmar Registro'
                       )}
                     </Button>
                   </motion.div>

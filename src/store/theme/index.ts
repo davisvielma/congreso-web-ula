@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 interface State {
-  theme: "light" | "dark"
+  theme: 'light' | 'dark'
 }
 
 interface Actions {
@@ -9,6 +9,6 @@ interface Actions {
 }
 
 export const useThemeStore = create<State & Actions>((set) => ({
-  theme: (localStorage.getItem("theme") as "light" | "dark") || "light",
+  theme: (localStorage.getItem('theme') as 'light' | 'dark') || 'light',
   setTheme: (theme) => set(() => ({ theme })),
 }))

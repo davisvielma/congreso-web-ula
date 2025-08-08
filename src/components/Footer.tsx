@@ -1,24 +1,24 @@
-import { contactInfo, quickLinks, socialLinks } from "@/data/footer";
-import { Pathnames } from "@/router/pathnames";
-import { motion } from "framer-motion"
-import { Calendar, MapPin, ExternalLink } from "lucide-react"
-import { useLocation } from "react-router";
+import { motion } from 'framer-motion'
+import { Calendar, ExternalLink, MapPin } from 'lucide-react'
+import { useLocation } from 'react-router'
+import { contactInfo, quickLinks, socialLinks } from '@/data/footer'
+import { Pathnames } from '@/router/pathnames'
 
 const Footer = () => {
   const { pathname } = useLocation()
 
   const scrollToSection = (href: string) => {
-    if (href.startsWith("#")) {
+    if (href.startsWith('#')) {
       const element = document.getElementById(href.substring(1))
       if (element) {
         const offsetTop = element.offsetTop - 80
         window.scrollTo({
           top: offsetTop,
-          behavior: "smooth",
+          behavior: 'smooth',
         })
       }
     } else {
-      window.open(href, "_blank", "noopener noreferrer")
+      window.open(href, '_blank', 'noopener noreferrer')
     }
   }
 
@@ -38,7 +38,7 @@ const Footer = () => {
       <div className="relative">
         {/* Main Footer Content */}
         <div className="container mx-auto px-6 py-16">
-          <div className={`grid gap-12 md:grid-cols-2 ${pathname === Pathnames.lading ? "lg:grid-cols-3" : ""} `}>
+          <div className={`grid gap-12 md:grid-cols-2 ${pathname === Pathnames.lading ? 'lg:grid-cols-3' : ''} `}>
             {/* Logo y Descripción */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -58,8 +58,8 @@ const Footer = () => {
               </div>
 
               <p className="text-gray-300 mb-6 leading-relaxed">
-                El evento más importante de desarrollo web en Venezuela. Conectando desarrolladores, compartiendo
-                conocimiento y construyendo el futuro tecnológico del país.
+                El evento más importante de desarrollo web en Venezuela. Conectando desarrolladores, compartiendo conocimiento y
+                construyendo el futuro tecnológico del país.
               </p>
 
               <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
@@ -74,28 +74,30 @@ const Footer = () => {
             </motion.div>
 
             {/* Enlaces Rápidos */}
-            {pathname === Pathnames.lading && <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-semibold mb-6">Enlaces Rápidos</h4>
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <motion.button
-                      whileHover={{ x: 5 }}
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-gray-300 hover:text-blue-400 transition-colors duration-200 flex items-center gap-2 group"
-                    >
-                      {link.name}
-                      <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </motion.button>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>}
+            {pathname === Pathnames.lading && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h4 className="text-lg font-semibold mb-6">Enlaces Rápidos</h4>
+                <ul className="space-y-3">
+                  {quickLinks.map((link) => (
+                    <li key={link.name}>
+                      <motion.button
+                        whileHover={{ x: 5 }}
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-gray-300 hover:text-blue-400 transition-colors duration-200 flex items-center gap-2 group"
+                      >
+                        {link.name}
+                        <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </motion.button>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
 
             {/* Contacto */}
             <motion.div
@@ -109,7 +111,7 @@ const Footer = () => {
                 {contactInfo.map((contact, index) => {
                   const Icon = contact.icon
                   return (
-                    <li key={index}>
+                    <li key={`contact-${String(index)}`}>
                       <motion.div
                         whileHover={{ x: 5 }}
                         className="text-gray-300 hover:text-blue-400 transition-colors duration-200 flex items-center gap-3 group"

@@ -1,5 +1,5 @@
-import { Link } from "react-router"
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
+import { Link } from 'react-router'
 
 const NotFoundPage = () => {
   return (
@@ -14,7 +14,6 @@ const NotFoundPage = () => {
           Volver al inicio
         </Link>
       </motion.div>
-
     </section>
   )
 }

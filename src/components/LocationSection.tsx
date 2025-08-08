@@ -1,7 +1,7 @@
-import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { MapPin } from "lucide-react"
-import { info, infoList } from "@/data/location"
+import { motion } from 'framer-motion'
+import { MapPin } from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { info, infoList } from '@/data/location'
 
 const LocationSection = () => {
   return (
@@ -64,7 +64,6 @@ const LocationSection = () => {
           >
             <div className="bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
               <div className="aspect-video relative">
-
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-green-100 dark:from-blue-900 dark:to-green-900">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">

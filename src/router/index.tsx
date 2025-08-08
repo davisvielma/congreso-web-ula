@@ -1,11 +1,11 @@
-import Loader from "@/components/Loader"
-import { lazy, Suspense } from "react"
-import { BrowserRouter, Route, Routes } from "react-router"
-import { Pathnames } from "./pathnames"
+import { lazy, Suspense } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router'
+import Loader from '@/components/Loader'
+import { Pathnames } from './pathnames'
 
-const AppLayout = lazy(() => import("@/layout/AppLayout"))
-const LandingPage = lazy(() => import("@/screen/LandingPage"))
-const NotFoundPage = lazy(() => import("@/screen/NotFoundPage"))
+const AppLayout = lazy(() => import('@/layout/AppLayout'))
+const LandingPage = lazy(() => import('@/screen/LandingPage'))
+const NotFoundPage = lazy(() => import('@/screen/NotFoundPage'))
 
 const AppRouter = () => {
   return (

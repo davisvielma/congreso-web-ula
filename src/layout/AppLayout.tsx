@@ -1,7 +1,7 @@
-import { Outlet } from "react-router"
-import Navbar from "@/components/navigation/Navbar"
-import Footer from "@/components/Footer"
-import ParticlesBackground from "@/components/ParticlesBackground"
+import { Outlet } from 'react-router'
+import Footer from '@/components/Footer'
+import Navbar from '@/components/navigation/Navbar'
+import ParticlesBackground from '@/components/ParticlesBackground'
 
 const AppLayout = () => {
   return (

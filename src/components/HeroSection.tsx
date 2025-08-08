@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, Users } from "lucide-react"
-import { scrollTo } from "@/utils"
+import { motion } from 'framer-motion'
+import { Calendar, MapPin, Users } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { scrollTo } from '@/utils'
 
 const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -13,10 +13,10 @@ const HeroSection = () => {
   })
 
   useEffect(() => {
-    const targetDate = new Date("2026-11-15T09:00:00").getTime()
+    const targetDate = new Date('2026-11-15T09:00:00').getTime()
 
     const timer = setInterval(() => {
-      const now = new Date().getTime()
+      const now = Date.now()
       const difference = targetDate - now
 
       if (difference > 0) {
@@ -97,10 +97,10 @@ const HeroSection = () => {
                 className="bg-white/20 dark:bg-gray-800/50 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-xl"
               >
                 <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  {value.toString().padStart(2, "0")}
+                  {value.toString().padStart(2, '0')}
                 </div>
                 <div className="text-sm font-medium text-gray-600 dark:text-gray-400 capitalize">
-                  {unit === "days" ? "Días" : unit === "hours" ? "Horas" : unit === "minutes" ? "Minutos" : "Segundos"}
+                  {unit === 'days' ? 'Días' : unit === 'hours' ? 'Horas' : unit === 'minutes' ? 'Minutos' : 'Segundos'}
                 </div>
               </motion.div>
             ))}
@@ -116,7 +116,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 font-semibold"
-                onClick={() => scrollTo("registration")}
+                onClick={() => scrollTo('registration')}
               >
                 Regístrate Ahora
               </Button>
@@ -127,7 +127,7 @@ const HeroSection = () => {
                 variant="outline"
                 size="lg"
                 className="bg-white/10 dark:bg-gray-800/30 backdrop-blur-sm border-white/30 hover:bg-white/20 dark:hover:bg-gray-700/50 px-8 py-4 text-lg rounded-full font-semibold"
-                onClick={() => scrollTo("agenda")}
+                onClick={() => scrollTo('agenda')}
               >
                 Ver Agenda
               </Button>

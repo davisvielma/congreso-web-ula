@@ -1,5 +1,5 @@
-import { navigationItems } from "./links"
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from 'framer-motion'
+import { navigationItems } from './links'
 
 interface Props {
   activeSection: string
@@ -34,10 +34,11 @@ const MobileMenu = ({ activeSection, isMobileMenuOpen, scrollToSection, setIsMob
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => scrollToSection(item.href)}
-                        className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 ${isActive
-                          ? "bg-blue-600 text-white shadow-lg"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                          }`}
+                        className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 ${
+                          isActive
+                            ? 'bg-blue-600 text-white shadow-lg'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20'
+                        }`}
                       >
                         <Icon className="w-5 h-5" />
                         <span className="font-medium">{item.name}</span>
